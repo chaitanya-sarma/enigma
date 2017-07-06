@@ -1,0 +1,7 @@
+.metadata
+.recommenders
+.idea
+.gitignore
+RemoteSystemsTempFiles
+*.class
+.settings 
