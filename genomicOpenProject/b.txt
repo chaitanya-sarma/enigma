@@ -1,0 +1,7 @@
+
+NOTE: THIS PACKAGE IS NOW OBSOLETE.
+
+  The R-Genetics project has developed an set of enhanced genetics
+  packages to replace 'genetics'. Please visit the project homepage
+  at http://rgenetics.org for informtion.
+

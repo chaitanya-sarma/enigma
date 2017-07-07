@@ -1,0 +1,7 @@
+
+Value of FRR 1 
+
+Seed =  0.3926052 
+
+
+Round  1   AlphaBayes in search of  correct seed.

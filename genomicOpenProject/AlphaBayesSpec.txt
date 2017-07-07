@@ -1,0 +1,23 @@
+InputFolder	,"C:/Users/Mohan-60686/Documents/ttxc h h/"
+OutputFolder	,"C:/Users/Mohan-60686/Documents/ttxc h h/"
+GenotypeTraining	,genoTrainingCV.txt
+GenotypeTesting	,genoTestingCV.txt
+MarkerNames	,Yes
+MarkersInRows	,Yes
+PhenotypeTraining	,phenoTrainingCV.txt
+PhenotypeTesting       	,None
+CovariateTraining	,None
+CovariateTestin	,None
+FixedSnpFile	,None
+nSnp	,954
+nCov	,0
+nAnisTr	,24
+nAnisTe	,25
+nRound	,1000
+nBurn	,100
+VareA	,0.5
+VarE	,0.5
+NumberOfProcessors	,3
+ScalingOption	,2
+MissingGenoCode	,9
+MarkerSolver	,BayesA
