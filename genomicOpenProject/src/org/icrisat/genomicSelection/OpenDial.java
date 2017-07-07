@@ -21,6 +21,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
 
 /**
  *
@@ -40,7 +41,7 @@ public class OpenDial extends JDialog implements ActionListener {
     JLabel lblPheno = new javax.swing.JLabel();
     JTextField txtPhenotype;
     JButton btnPhenotype = new javax.swing.JButton();
-    JButton btnBms = new javax.swing.JButton();
+    JButton btnBMS = new javax.swing.JButton();
     JButton btnGOBII = new javax.swing.JButton();
     JLabel lblResultDir = new javax.swing.JLabel();
     JTextField txtResultDir;
@@ -80,7 +81,8 @@ public class OpenDial extends JDialog implements ActionListener {
         //intilizing action lisener of buttons 
         btnGenotype.addActionListener(this);
         btnPhenotype.addActionListener(this);
-        btnBms.addActionListener(this);
+        btnBMS.addActionListener(this);
+        btnGOBII.addActionListener(this);
         btnOk.addActionListener(this);
         btnCancle.addActionListener(this);
         Constant.genotype = null;
@@ -182,7 +184,7 @@ public class OpenDial extends JDialog implements ActionListener {
             }
         }
 
-        if(source == btnBms){
+        if(source == btnBMS){
         	System.out.println("Connect to BMS");
         //    BMSConnect bmsPanel = new BMSConnect(frame);
         //    bmsPanel.setLocationRelativeTo(frame);
@@ -191,6 +193,17 @@ public class OpenDial extends JDialog implements ActionListener {
         	opd.setLocationRelativeTo(frame);
         	opd.setVisible(true);
         	System.out.println("Connected to BMS");
+        }
+        
+        if(source == btnGOBII){
+        	System.out.println("Connect to GOBII");
+        //    BMSConnect bmsPanel = new BMSConnect(frame);
+        //    bmsPanel.setLocationRelativeTo(frame);
+        //    bmsPanel.setVisible(true);
+        	OpenDiall opd = new OpenDiall(frame, true);
+        	opd.setLocationRelativeTo(frame);
+        	opd.setVisible(true);
+        	System.out.println("Connected to GOBII");
         }
         
         if (source == btnPhenotype) { //if the phenotype button 
@@ -304,9 +317,12 @@ public class OpenDial extends JDialog implements ActionListener {
         btnPhenotype.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
         btnPhenotype.setText("Browse");
 
-        btnBms.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
-        btnBms.setText("BMS");
+        btnBMS.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+        btnBMS.setText("BMS");
 
+        btnGOBII.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+        btnGOBII = new JButton("GOBII");
+        btnGOBII.setFont(new Font("Dialog", Font.PLAIN, 15));
         
         lblResultDir.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
         lblResultDir.setText("Select a result directory *:");
@@ -322,6 +338,7 @@ public class OpenDial extends JDialog implements ActionListener {
 
         btnCancle.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
         btnCancle.setText("Cancel");
+        
         
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
@@ -349,8 +366,9 @@ public class OpenDial extends JDialog implements ActionListener {
         					.addComponent(btnCancle)
         					.addGap(159)))
         			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(btnBms, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(btnBMS, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+        				.addComponent(btnGOBII, GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
@@ -359,13 +377,14 @@ public class OpenDial extends JDialog implements ActionListener {
         			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(lblGeno)
         				.addComponent(txtGenotype, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(btnGenotype))
+        				.addComponent(btnGenotype)
+        				.addComponent(btnGOBII, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
         			.addGap(18)
         			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(lblPheno)
         				.addComponent(txtPhenotype, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         				.addComponent(btnPhenotype)
-        				.addComponent(btnBms, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(btnBMS, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
         			.addGap(18)
         			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(lblResultDir)
