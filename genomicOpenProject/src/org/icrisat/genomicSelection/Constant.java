@@ -21,7 +21,7 @@ import java.util.List;
 public class Constant {
 
     static String genotype = null; //stores the present genotype file choosen
-    static String phenotype = null;//stores the present phenotype file choosen
+    public static String phenotype = null;//stores the present phenotype file choosen
     static String population = "";//stores the present pooulation file choosen
     static String resultdirectory = "empty"; //stores the working directory where the results and input files in these directory
     static String phenotraits = ""; //stores the count of the phenotraits for choosen file
