@@ -4,10 +4,12 @@
  */
 package org.icrisat.genomicSelection;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.swing.JDialog;
@@ -18,10 +20,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.icrisat.genomicSelection.PhenoTypeDB.ConnectToPhenotypeDB;
+import org.icrisat.genomicSelection.GenoTypeDB.ConnectToGenotypeDB;
+import org.icrisat.genomicSelection.Helper.Helper;
+import org.icrisat.genomicSelection.Helper.Util;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
+import java.awt.Image;
 
 /**
  *
@@ -55,6 +64,7 @@ public class OpenDial extends JDialog implements ActionListener {
      */
     public OpenDial(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setSize(new Dimension(900, 900));
         frame = parent;
         tabbedPane = new ClosableTabbedPane();
         txtGenotype = new javax.swing.JTextField();
@@ -186,12 +196,11 @@ public class OpenDial extends JDialog implements ActionListener {
 
         if(source == btnBMS){
         	System.out.println("Connect to BMS");
-        //    BMSConnect bmsPanel = new BMSConnect(frame);
-        //    bmsPanel.setLocationRelativeTo(frame);
-        //    bmsPanel.setVisible(true);
-        	OpenDiall opd = new OpenDiall(frame, true);
-        	opd.setLocationRelativeTo(frame);
-        	opd.setVisible(true);
+         //   BMSConnect bmsPanel = new BMSConnect(frame);
+          // bmsPanel.setLocationRelativeTo(frame);
+          //  bmsPanel.setVisible(true);
+        	ConnectToPhenotypeDB phenoDB = new ConnectToPhenotypeDB(frame, true);
+        	phenoDB.setVisible(true);
         	System.out.println("Connected to BMS");
         }
         
@@ -200,9 +209,8 @@ public class OpenDial extends JDialog implements ActionListener {
         //    BMSConnect bmsPanel = new BMSConnect(frame);
         //    bmsPanel.setLocationRelativeTo(frame);
         //    bmsPanel.setVisible(true);
-        	OpenDiall opd = new OpenDiall(frame, true);
-        	opd.setLocationRelativeTo(frame);
-        	opd.setVisible(true);
+        	ConnectToGenotypeDB genoDB = new ConnectToGenotypeDB(frame, true);
+        	genoDB.setVisible(true);
         	System.out.println("Connected to GOBII");
         }
         
@@ -318,11 +326,15 @@ public class OpenDial extends JDialog implements ActionListener {
         btnPhenotype.setText("Browse");
 
         btnBMS.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
-        btnBMS.setText("BMS");
+        btnBMS.setText("Connect");
+        btnBMS.setBackground(Color.WHITE);
+        btnBMS.setIcon(Helper.createIcon("Download_database_Icon.gif"));
 
         btnGOBII.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
-        btnGOBII = new JButton("GOBII");
+        btnGOBII = new JButton("Connect");
         btnGOBII.setFont(new Font("Dialog", Font.PLAIN, 15));
+        btnGOBII.setBackground(Color.WHITE);
+        btnGOBII.setIcon(Helper.createIcon("Download_database_Icon.gif"));
         
         lblResultDir.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
         lblResultDir.setText("Select a result directory *:");
@@ -368,7 +380,7 @@ public class OpenDial extends JDialog implements ActionListener {
         			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(btnBMS, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-        				.addComponent(btnGOBII, GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)))
+        				.addComponent(btnGOBII, GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
@@ -433,4 +445,5 @@ public class OpenDial extends JDialog implements ActionListener {
         //</editor-fold>
       
     }
+    
 }

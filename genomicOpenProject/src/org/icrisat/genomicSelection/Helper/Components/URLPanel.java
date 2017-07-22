@@ -1,6 +1,5 @@
-package org.icrisat.genomicSelection.PhenoTypeDB;
+package org.icrisat.genomicSelection.Helper.Components;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -10,27 +9,21 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 public class URLPanel extends JPanel {
-	private CustomTextField bmsURLField;
-	private JButton bmsConnect;
+	private CustomTextField urlField;
+	private JButton connect;
 
 	public URLPanel(String title) {
 
-		bmsURLField = new CustomTextField(30);
-		bmsURLField.setPlaceholder("URL");
+		urlField = new CustomTextField(30);
+		urlField.setPlaceholder("URL");
 		
-		
-		
-		
-		
-		
-		bmsConnect = new JButton("Connect");
-		bmsConnect.setPreferredSize(new Dimension(100, 23));
-		bmsConnect.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
+		connect = new JButton("Connect");
+		connect.setPreferredSize(new Dimension(100, 23));
+		connect.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
 		TitledBorder inner = new TitledBorder(title);
 		inner.setTitleFont(new Font("DejaVu Sans", Font.BOLD, 20));
 		Border outer = BorderFactory.createEmptyBorder(5, 5, 5, 5);
@@ -46,7 +39,7 @@ public class URLPanel extends JPanel {
 		gc.insets = new Insets(0, 0, 0, 5);
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.anchor = GridBagConstraints.LINE_END;
-		add(bmsURLField, gc);
+		add(urlField, gc);
 
 		gc.weightx = 1;
 		gc.weighty = 1;
@@ -56,7 +49,7 @@ public class URLPanel extends JPanel {
 		gc.insets = new Insets(0, 0, 0, 0);
 		gc.fill = GridBagConstraints.NONE;
 		gc.anchor = GridBagConstraints.LINE_START;
-		add(bmsConnect, gc);
+		add(connect, gc);
 	}
 
 }

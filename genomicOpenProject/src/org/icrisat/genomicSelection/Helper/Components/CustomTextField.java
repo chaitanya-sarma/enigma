@@ -1,4 +1,4 @@
-package org.icrisat.genomicSelection.PhenoTypeDB;
+package org.icrisat.genomicSelection.Helper.Components;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
