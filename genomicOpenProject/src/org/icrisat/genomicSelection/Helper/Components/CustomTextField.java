@@ -1,4 +1,4 @@
-package org.icrisat.genomicSelection.Helper.Components;
+package org.icrisat.genomicSelection.helper.components;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -24,7 +24,7 @@ public class CustomTextField extends JTextField {
     public CustomTextField(int columns) {
         super(columns);
     }
- 
+    
     @Override
     public void setFont(Font f) {
         super.setFont(f);

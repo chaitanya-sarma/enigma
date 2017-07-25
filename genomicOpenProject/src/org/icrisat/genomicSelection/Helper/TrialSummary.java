@@ -1,4 +1,4 @@
-package org.icrisat.genomicSelection.Helper;
+package org.icrisat.genomicSelection.helper;
 /**
  *  "data": [
       {

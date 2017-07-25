@@ -1,4 +1,4 @@
-package org.icrisat.genomicSelection.Helper;
+package org.icrisat.genomicSelection.helper;
 
 import java.awt.Image;
 import java.net.URL;

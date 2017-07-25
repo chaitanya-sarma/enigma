@@ -21,10 +21,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.icrisat.genomicSelection.PhenoTypeDB.ConnectToPhenotypeDB;
-import org.icrisat.genomicSelection.GenoTypeDB.ConnectToGenotypeDB;
-import org.icrisat.genomicSelection.Helper.Helper;
-import org.icrisat.genomicSelection.Helper.Util;
+import org.icrisat.genomicSelection.phenoTypeDB.ConnectToPhenotypeDB;
+import org.icrisat.genomicSelection.genoTypeDB.ConnectToGenotypeDB;
+import org.icrisat.genomicSelection.helper.Helper;
+import org.icrisat.genomicSelection.helper.Util;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import javax.swing.GroupLayout;

@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.icrisat.genomicSelection.GenoTypeDB;
+package org.icrisat.genomicSelection.genoTypeDB;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
-import org.icrisat.genomicSelection.Helper.Components.URLPanel;
+import org.icrisat.genomicSelection.helper.components.urlPanel.*;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -23,13 +23,13 @@ public class ConnectToGenotypeDB extends JDialog implements ActionListener {
 	private URLPanel gobiiURLPanel, germinateURLPanel, g4rURLPanel;
 
 	public ConnectToGenotypeDB(java.awt.Frame parent, boolean modal) {
-		//super(parent, "Connect to Phenotype Databases", modal);
+		// super(parent, "Connect to Phenotype Databases", modal);
 		super(parent, modal);
 		setSize(new Dimension(500, 250));
 		setLocationRelativeTo(parent);
-		gobiiURLPanel = new URLPanel("GOBII URL");
-		germinateURLPanel = new URLPanel("Germinate URL");
-		g4rURLPanel = new URLPanel("G4R URL");
+		gobiiURLPanel = new GobiiURLPanel(parent, "GOBII");
+		germinateURLPanel = new GerminateURLPanel(parent, "Germinate");
+		g4rURLPanel = new G4rURLPanel(parent, "G4R");
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 
@@ -43,7 +43,7 @@ public class ConnectToGenotypeDB extends JDialog implements ActionListener {
 		gc.gridx = 0;
 		gc.gridy = 1;
 		add(germinateURLPanel, gc);
-		
+
 		gc.gridx = 0;
 		gc.gridy = 2;
 		add(g4rURLPanel, gc);
@@ -52,7 +52,6 @@ public class ConnectToGenotypeDB extends JDialog implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		Object source = evt.getSource(); // gettig the source (name of the
-											// button)
+
 	}
 }

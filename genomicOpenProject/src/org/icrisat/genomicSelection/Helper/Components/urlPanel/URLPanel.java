@@ -1,10 +1,11 @@
-package org.icrisat.genomicSelection.Helper.Components;
+package org.icrisat.genomicSelection.helper.components.urlPanel;
 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -12,7 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-public class URLPanel extends JPanel {
+import org.icrisat.genomicSelection.helper.components.CustomTextField;
+
+public abstract class URLPanel extends JPanel implements ActionListener{
 	private CustomTextField urlField;
 	private JButton connect;
 
@@ -50,6 +53,7 @@ public class URLPanel extends JPanel {
 		gc.fill = GridBagConstraints.NONE;
 		gc.anchor = GridBagConstraints.LINE_START;
 		add(connect, gc);
+		
+		connect.addActionListener(this);
 	}
-
 }

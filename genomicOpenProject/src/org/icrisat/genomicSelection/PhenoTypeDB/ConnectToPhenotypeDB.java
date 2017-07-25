@@ -1,14 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.icrisat.genomicSelection.PhenoTypeDB;
+package org.icrisat.genomicSelection.phenoTypeDB;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
-import org.icrisat.genomicSelection.Helper.Components.URLPanel;
+import org.icrisat.genomicSelection.helper.components.urlPanel.B4rURLPanel;
+import org.icrisat.genomicSelection.helper.components.urlPanel.BmsURLPanel;
+import org.icrisat.genomicSelection.helper.components.urlPanel.URLPanel;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -27,8 +25,8 @@ public class ConnectToPhenotypeDB extends JDialog implements ActionListener {
 		super(parent, modal);
 		setSize(new Dimension(500, 200));
 		setLocationRelativeTo(parent);
-		bmsURLPanel = new URLPanel("BMS URL");
-		b4rURLPanel = new URLPanel("B4R URL");
+		bmsURLPanel = new BmsURLPanel(parent,"BMS");
+		b4rURLPanel = new B4rURLPanel(parent,"B4R");
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 
@@ -48,8 +46,8 @@ public class ConnectToPhenotypeDB extends JDialog implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent evt) {
-		Object source = evt.getSource(); // gettig the source (name of the
-											// button)
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

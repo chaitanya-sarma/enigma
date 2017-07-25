@@ -1,4 +1,4 @@
-package org.icrisat.genomicSelection.Helper;
+package org.icrisat.genomicSelection.helper;
 
 import java.awt.Color;
 import javax.swing.table.DefaultTableCellRenderer;
