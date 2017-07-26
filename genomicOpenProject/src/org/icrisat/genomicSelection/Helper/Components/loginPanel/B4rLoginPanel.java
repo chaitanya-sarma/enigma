@@ -2,7 +2,6 @@ package org.icrisat.genomicSelection.helper.components.loginPanel;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.awt.event.ComponentEvent;
 
 public class B4rLoginPanel extends LoginPanel {
 

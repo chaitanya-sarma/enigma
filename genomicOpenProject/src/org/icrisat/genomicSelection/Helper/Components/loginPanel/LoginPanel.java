@@ -11,25 +11,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 import org.icrisat.genomicSelection.helper.Helper;
 
-import com.sun.glass.events.WindowEvent;
-import com.sun.javafx.stage.WindowHelper.WindowAccessor;
-
 public abstract class LoginPanel extends JDialog implements ActionListener{
 
-	private JLabel username, password;
+	private JLabel usernameLbl, passwordLbl;
 	protected JPasswordField passwordField;
 	protected JTextField usernameField;
 	private JButton connect;
-	private String url;
+	protected String url, userName, password;
+	private Frame parent ;
 	public LoginPanel(Frame parent, boolean modal, String title) {
 		super(parent, modal);
-		setSize(new Dimension(400, 250));
+		this.parent = parent;
+		setSize(new Dimension(400, 200));
 		setLocationRelativeTo(parent);
 		setTitle(title);
 		setLayout(new GridBagLayout());
@@ -49,19 +48,19 @@ public abstract class LoginPanel extends JDialog implements ActionListener{
 	}
 	
 	private void initialize() {
-		username = new JLabel("USERNAME");
-		username.setIcon(Helper.createIcon("users-icon.png"));
-		username.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
-		username.setHorizontalTextPosition(JLabel.LEFT);
-		username.setIconTextGap(120);
+		usernameLbl = new JLabel("USERNAME");
+		usernameLbl.setIcon(Helper.createIcon("users-icon.png"));
+		usernameLbl.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
+		usernameLbl.setHorizontalTextPosition(JLabel.LEFT);
+		usernameLbl.setIconTextGap(120);
 
 		usernameField = new JTextField(20);
 
-		password = new JLabel("PASSWORD");
-		password.setIcon(Helper.createIcon("password.png"));
-		password.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
-		password.setHorizontalTextPosition(JLabel.LEFT);
-		password.setIconTextGap(110);
+		passwordLbl = new JLabel("PASSWORD");
+		passwordLbl.setIcon(Helper.createIcon("password.png"));
+		passwordLbl.setFont(new Font("DejaVu Sans", Font.BOLD, 15));
+		passwordLbl.setHorizontalTextPosition(JLabel.LEFT);
+		passwordLbl.setIconTextGap(110);
 
 		passwordField = new JPasswordField(20);
 		connect = new JButton("Login Now");
@@ -73,7 +72,7 @@ public abstract class LoginPanel extends JDialog implements ActionListener{
 		gc.gridy = 0;
 		gc.anchor = GridBagConstraints.FIRST_LINE_START;
 		gc.insets = new Insets(0, 0, 10, 0);
-		add(username, gc);
+		add(usernameLbl, gc);
 
 		gc.gridx = 0;
 		gc.gridy = 1;
@@ -84,7 +83,7 @@ public abstract class LoginPanel extends JDialog implements ActionListener{
 		gc.gridy = 2;
 		gc.insets = new Insets(0, 0, 10, 0);
 		gc.anchor = GridBagConstraints.FIRST_LINE_START;
-		add(password, gc);
+		add(passwordLbl, gc);
 
 		gc.gridx = 0;
 		gc.gridy = 3;
@@ -99,5 +98,15 @@ public abstract class LoginPanel extends JDialog implements ActionListener{
 
 		connect.addActionListener(this);
 
+	}
+
+	// Validates username and password.
+	protected void validateUserFields(){
+		userName = usernameField.getText().trim();
+		password = String.valueOf(passwordField.getPassword());
+		password = password.trim();
+		if (userName == null || password == null || userName.isEmpty() || password.isEmpty()) {
+			JOptionPane.showMessageDialog(parent, "Please check the entered Username and Password.");
+		}
 	}
 }

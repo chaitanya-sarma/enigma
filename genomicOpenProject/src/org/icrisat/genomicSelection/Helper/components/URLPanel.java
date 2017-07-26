@@ -20,6 +20,8 @@ import javax.ws.rs.core.Response;
 import org.icrisat.genomicSelection.helper.UtilWebService;
 import org.icrisat.genomicSelection.helper.components.loginPanel.LoginPanel;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister.Pack;
+
 public class URLPanel extends JPanel implements ActionListener{
 	protected CustomTextField urlField;
 	private JButton connect;
@@ -72,7 +74,7 @@ public class URLPanel extends JPanel implements ActionListener{
 		try{
 			response = UtilWebService.authenticate(urlField.getText(), "userName", "password");
 			if(response == null)
-				JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+				JOptionPane.showMessageDialog(parent, "Please check the entered URL.");
 			else{
 				// URL is good. As username and password or wrong, we got this error.
 				if(response.getStatus() == 405){
@@ -80,12 +82,12 @@ public class URLPanel extends JPanel implements ActionListener{
 					loginPanel.clearPasswordField();
 					loginPanel.setVisible(true);
 				}else{
-					JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+					JOptionPane.showMessageDialog(parent, "Please check the entered URL.");
 				}
 			}
 			
 		}catch(Exception e1){
-			JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+			JOptionPane.showMessageDialog(parent, "Please check the entered URL.");
 		}
 		
 	}

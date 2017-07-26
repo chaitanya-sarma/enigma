@@ -66,13 +66,13 @@ public class BMSConnect extends JDialog{
 				loginPanel.setVisible(false);
 				mainPanel.setVisible(true);
 				contentPanel.setVisible(true);
-				int status = org.icrisat.genomicSelection.helper.Util.authenticate(userNameField.getText(),
-						new String(passwordField.getPassword()));
+		//		int status = org.icrisat.genomicSelection.helper.Util.authenticate(userNameField.getText(),
+			//			new String(passwordField.getPassword()));
 				// Has auth succeeded
-				if (status == 200) {
-				} else {
+			//	if (status == 200) {
+		//		} else {
 					// TODO
-				}
+		//		}
 			}
 		});
 	}

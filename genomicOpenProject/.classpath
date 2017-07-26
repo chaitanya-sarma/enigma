@@ -153,5 +153,6 @@
 	<classpathentry kind="lib" path="lib/jaxrs-ri/ext/persistence-api-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jaxrs-ri/ext/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/jaxrs-ri/ext/yasson-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jaxrs-ri/gson-2.8.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
