@@ -26,16 +26,24 @@ public abstract class LoginPanel extends JDialog implements ActionListener{
 	protected JPasswordField passwordField;
 	protected JTextField usernameField;
 	private JButton connect;
-
-	public LoginPanel(Frame parent, boolean modal) {
+	private String url;
+	public LoginPanel(Frame parent, boolean modal, String title) {
 		super(parent, modal);
 		setSize(new Dimension(400, 250));
 		setLocationRelativeTo(parent);
-		setTitle("Login");
+		setTitle(title);
 		setLayout(new GridBagLayout());
 		initialize();
 	}
 
+	public void setURL(String url){
+		this.url = url;
+	}
+	
+	public void clearURL(){
+		this.url = "";
+	}
+	
 	public void clearPasswordField(){
 		passwordField.setText("");
 	}

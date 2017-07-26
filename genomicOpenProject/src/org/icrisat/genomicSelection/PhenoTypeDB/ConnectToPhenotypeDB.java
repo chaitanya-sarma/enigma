@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
-import org.icrisat.genomicSelection.helper.components.urlPanel.B4rURLPanel;
-import org.icrisat.genomicSelection.helper.components.urlPanel.BmsURLPanel;
-import org.icrisat.genomicSelection.helper.components.urlPanel.URLPanel;
+import org.icrisat.genomicSelection.helper.components.URLPanel;
+import org.icrisat.genomicSelection.helper.components.loginPanel.B4rLoginPanel;
+import org.icrisat.genomicSelection.helper.components.loginPanel.BMSLoginPanel;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -25,8 +25,8 @@ public class ConnectToPhenotypeDB extends JDialog implements ActionListener {
 		super(parent, modal);
 		setSize(new Dimension(500, 200));
 		setLocationRelativeTo(parent);
-		bmsURLPanel = new BmsURLPanel(parent,"BMS");
-		b4rURLPanel = new B4rURLPanel(parent,"B4R");
+		bmsURLPanel = new URLPanel(parent,"BMS", new BMSLoginPanel(parent));
+		b4rURLPanel = new URLPanel(parent,"B4R", new B4rLoginPanel(parent));
 		setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 

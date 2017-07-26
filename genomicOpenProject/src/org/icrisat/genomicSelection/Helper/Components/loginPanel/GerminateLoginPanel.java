@@ -9,7 +9,7 @@ public class GerminateLoginPanel extends LoginPanel {
 	private Frame parent;
 
 	public GerminateLoginPanel(Frame parent) {
-		super(parent, true);
+		super(parent, true, "Germinate Login");
 		this.parent = parent;
 	}
 

@@ -24,13 +24,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.icrisat.genomicSelection.phenoTypeDB.ConnectToPhenotypeDB;
 import org.icrisat.genomicSelection.genoTypeDB.ConnectToGenotypeDB;
 import org.icrisat.genomicSelection.helper.Helper;
-import org.icrisat.genomicSelection.helper.Util;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
-import java.awt.Image;
 
 /**
  *

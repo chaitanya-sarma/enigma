@@ -1,26 +1,34 @@
-package org.icrisat.genomicSelection.helper.components.urlPanel;
+package org.icrisat.genomicSelection.helper.components;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.ws.rs.core.Response;
 
-import org.icrisat.genomicSelection.helper.components.CustomTextField;
+import org.icrisat.genomicSelection.helper.UtilWebService;
+import org.icrisat.genomicSelection.helper.components.loginPanel.LoginPanel;
 
-public abstract class URLPanel extends JPanel implements ActionListener{
-	private CustomTextField urlField;
+public class URLPanel extends JPanel implements ActionListener{
+	protected CustomTextField urlField;
 	private JButton connect;
+	protected LoginPanel loginPanel;
+	private Frame parent;
+	public URLPanel(Frame parent, String title, LoginPanel bmsLoginPanel) {
 
-	public URLPanel(String title) {
-
+		this.parent = parent;
+		loginPanel = bmsLoginPanel;
 		urlField = new CustomTextField(30);
 		urlField.setPlaceholder("URL");
 		
@@ -55,5 +63,30 @@ public abstract class URLPanel extends JPanel implements ActionListener{
 		add(connect, gc);
 		
 		connect.addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Response response = null;
+		loginPanel.clearURL();
+		try{
+			response = UtilWebService.authenticate(urlField.getText(), "userName", "password");
+			if(response == null)
+				JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+			else{
+				// URL is good. As username and password or wrong, we got this error.
+				if(response.getStatus() == 405){
+					loginPanel.setURL(urlField.getText());
+					loginPanel.clearPasswordField();
+					loginPanel.setVisible(true);
+				}else{
+					JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+				}
+			}
+			
+		}catch(Exception e1){
+			JOptionPane.showMessageDialog(null, "Please check the entered URL.");
+		}
+		
 	}
 }

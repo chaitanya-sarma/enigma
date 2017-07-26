@@ -9,7 +9,7 @@ public class G4rLoginPanel extends LoginPanel {
 	private Frame parent;
 
 	public G4rLoginPanel(Frame parent) {
-		super(parent, true);
+		super(parent, true, "G4R Login");
 		this.parent = parent;
 	}
 

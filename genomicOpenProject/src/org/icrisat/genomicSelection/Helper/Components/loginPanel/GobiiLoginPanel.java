@@ -2,14 +2,12 @@ package org.icrisat.genomicSelection.helper.components.loginPanel;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.awt.event.ComponentEvent;
-
 public class GobiiLoginPanel extends LoginPanel {
 
 	private Frame parent;
 
 	public GobiiLoginPanel(Frame parent) {
-		super(parent, true);
+		super(parent, true, "Gobii Login");
 		this.parent = parent;
 	}
 

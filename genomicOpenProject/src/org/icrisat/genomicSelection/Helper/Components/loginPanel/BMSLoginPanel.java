@@ -10,7 +10,7 @@ public class BMSLoginPanel extends LoginPanel {
 	private Frame parent;
 
 	public BMSLoginPanel(Frame parent) {
-		super(parent, true);
+		super(parent, true, "BMS Login");
 		this.parent = parent;
 	}
 
