@@ -21,9 +21,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.icrisat.genomicSelection.phenoTypeDB.ConnectToPhenotypeDB;
-import org.icrisat.genomicSelection.genoTypeDB.ConnectToGenotypeDB;
-import org.icrisat.genomicSelection.helper.Helper;
+import org.icrisat.genomicSelection.connectToDB.*;
+import org.icrisat.genomicSelection.util.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -196,7 +195,7 @@ public class OpenDial extends JDialog implements ActionListener {
          //   BMSConnect bmsPanel = new BMSConnect(frame);
           // bmsPanel.setLocationRelativeTo(frame);
           //  bmsPanel.setVisible(true);
-        	ConnectToPhenotypeDB phenoDB = new ConnectToPhenotypeDB(frame, true);
+        	PhenotypeDB phenoDB = new PhenotypeDB(frame, true);
         	phenoDB.setVisible(true);
         	System.out.println("Connected to BMS");
         }
@@ -206,7 +205,7 @@ public class OpenDial extends JDialog implements ActionListener {
         //    BMSConnect bmsPanel = new BMSConnect(frame);
         //    bmsPanel.setLocationRelativeTo(frame);
         //    bmsPanel.setVisible(true);
-        	ConnectToGenotypeDB genoDB = new ConnectToGenotypeDB(frame, true);
+        	GenotypeDB genoDB = new GenotypeDB(frame, true);
         	genoDB.setVisible(true);
         	System.out.println("Connected to GOBII");
         }
