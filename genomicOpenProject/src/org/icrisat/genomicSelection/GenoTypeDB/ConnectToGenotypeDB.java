@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
+import org.icrisat.genomicSelection.helper.components.GobiiURLPanel;
 import org.icrisat.genomicSelection.helper.components.URLPanel;
 import org.icrisat.genomicSelection.helper.components.loginPanel.G4rLoginPanel;
 import org.icrisat.genomicSelection.helper.components.loginPanel.GerminateLoginPanel;
@@ -30,7 +31,7 @@ public class ConnectToGenotypeDB extends JDialog implements ActionListener {
 		super(parent, modal);
 		setSize(new Dimension(500, 250));
 		setLocationRelativeTo(parent);
-		gobiiURLPanel = new URLPanel(parent, "GOBII", new GobiiLoginPanel(parent));
+		gobiiURLPanel = new GobiiURLPanel(parent, "GOBII", new GobiiLoginPanel(parent));
 		germinateURLPanel = new URLPanel(parent, "Germinate", new GerminateLoginPanel(parent));
 		g4rURLPanel = new URLPanel(parent, "G4R", new G4rLoginPanel(parent));
 		setLayout(new GridBagLayout());

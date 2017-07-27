@@ -27,10 +27,10 @@ public class URLPanel extends JPanel implements ActionListener{
 	private JButton connect;
 	protected LoginPanel loginPanel;
 	private Frame parent;
-	public URLPanel(Frame parent, String title, LoginPanel bmsLoginPanel) {
+	public URLPanel(Frame parent, String title, LoginPanel loginPanel) {
 
 		this.parent = parent;
-		loginPanel = bmsLoginPanel;
+		this.loginPanel = loginPanel;
 		urlField = new CustomTextField(30);
 		urlField.setPlaceholder("URL");
 		
